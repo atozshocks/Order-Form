@@ -3,337 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Order Internal - Ekosistem Gorengan</title>
+    <title>Sistem Order Internal - Multi Paket</title>
     <style>
-        :root {
-            --primary: #d97706;
-            --primary-hover: #b45309;
-            --danger: #dc2626;
-            --success: #16a34a;
-            --bg: #f3f4f6;
-            --card: #ffffff;
-            --text: #1f2937;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 500px;
-            background: var(--card);
-            padding: 25px;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-
-        h2 {
-            text-align: center;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-
-        p.subtitle {
-            text-align: center;
-            font-size: 14px;
-            color: #6b7280;
-            margin-bottom: 25px;
-        }
-
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 6px;
-            font-size: 14px;
-        }
-
-        select, input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            font-size: 15px;
-            outline: none;
-            transition: 0.2s;
-        }
-
-        select:focus, input:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.2);
-        }
-
-        .info-box {
-            background-color: #fef3c7;
-            border-left: 4px solid var(--primary);
-            padding: 12px;
-            border-radius: 4px;
-            margin-bottom: 15px;
-            font-size: 13px;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: bold;
-            color: white;
-            margin-top: 5px;
-        }
-
-        .badge-a { background-color: #1e3a8a; }
-        .badge-b { background-color: #0d9488; }
-        .badge-c { background-color: #4b5563; }
-
-        .summary-box {
-            background-color: #f8fafc;
-            border: 1px solid #e2e8f0;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-
-        .summary-row.total {
-            border-top: 1px dashed #cbd5e1;
-            padding-top: 8px;
-            font-weight: bold;
-            font-size: 16px;
-            color: var(--primary);
-        }
-
-        .alert-bmo {
-            background-color: #fee2e2;
-            border: 1px solid #fca5a5;
-            color: var(--danger);
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-top: 15px;
-            display: none;
-            text-align: center;
-        }
-
-        .btn-submit {
-            width: 100%;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 14px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: 0.2s;
-        }
-
-        .btn-submit:hover {
-            background-color: var(--primary-hover);
-        }
-
-        .btn-submit:disabled {
-            background-color: #cbd5e1;
-            cursor: not-allowed;
-        }
+        :root { --primary: #d97706; --primary-hover: #b45309; --danger: #dc2626; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f3f4f6; padding: 20px; }
+        .container { max-width: 620px; margin: 0 auto; background: white; padding: 25px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #d97706; }
+        .form-group { margin-bottom: 18px; }
+        label { font-weight: 600; display: block; margin-bottom: 6px; }
+        select, input { width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 8px; }
+        .item-row { display: grid; grid-template-columns: 2.2fr 1fr 1.2fr 1fr 0.6fr; gap: 8px; align-items: center; margin-bottom: 10px; background: #f8fafc; padding: 10px; border-radius: 8px; }
+        .summary-box { background: #f8fafc; padding: 15px; border-radius: 8px; margin-top: 20px; }
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
+        .summary-row.total { font-weight: bold; border-top: 1px dashed #cbd5e1; padding-top: 8px; color: #d97706; }
+        .alert-bmo { background: #fee2e2; color: #dc2626; padding: 10px; border-radius: 8px; margin-top: 10px; display: none; }
+        .btn { padding: 10px 16px; border: none; border-radius: 8px; cursor: pointer; }
+        .btn-primary { background: #d97706; color: white; }
+        .btn-danger { background: #dc2626; color: white; }
+        .btn-submit { width: 100%; padding: 14px; background: #d97706; color: white; border: none; border-radius: 8px; font-size: 16px; margin-top: 20px; }
+        .btn-submit:disabled { background: #cbd5e1; cursor: not-allowed; }
     </style>
 </head>
 <body>
 <div class="container">
-    <h2>Form Order Bahan Baku</h2>
-    <p class="subtitle">Ekosistem 10 Outlet Gorengan - Dapur Pusat</p>
+    <h2>Form Order Multi Paket</h2>
+    <p style="text-align:center; color:#6b7280;">Ekosistem Gorengan - Dapur Pusat</p>
 
-    <form id="orderForm" onsubmit="kirimOrder(event)">
-        <!-- Pilihan Outlet -->
-        <div class="form-group">
-            <label for="outlet">Pilih Outlet Anda:</label>
-            <select id="outlet" required onchange="updateOutletInfo()">
-                <option value="">-- Pilih Outlet --</option>
-                <option value="Outlet 1" data-tier="A" data-bmo="6">Outlet 1 (Stasiun) - Tier A</option>
-                <option value="Outlet 2" data-tier="A" data-bmo="6">Outlet 2 (Kampus) - Tier A</option>
-                <option value="Outlet 3" data-tier="B" data-bmo="4">Outlet 3 (Pasar) - Tier B</option>
-                <option value="Outlet 4" data-tier="B" data-bmo="4">Outlet 4 (Perumahan P) - Tier B</option>
-                <option value="Outlet 5" data-tier="B" data-bmo="4">Outlet 5 (Perumahan Q) - Tier B</option>
-                <option value="Outlet 6" data-tier="B" data-bmo="4">Outlet 6 (Ruko Sudirman) - Tier B</option>
-                <option value="Outlet 7" data-tier="C" data-bmo="2">Outlet 7 (Jl. Baru) - Tier C</option>
-                <option value="Outlet 8" data-tier="C" data-bmo="2">Outlet 8 (Ruko Sekunder) - Tier C</option>
-                <option value="Outlet 9" data-tier="C" data-bmo="2">Outlet 9 (Terminal) - Tier C</option>
-                <option value="Outlet 10" data-tier="C" data-bmo="2">Outlet 10 (Margonda) - Tier C</option>
-            </select>
-            <div id="outletBadge"></div>
-        </div>
+    <!-- Outlet -->
+    <div class="form-group">
+        <label>Pilih Outlet</label>
+        <select id="outlet" onchange="updateOutletInfo()">
+            <option value="">-- Pilih Outlet --</option>
+            <option value="Outlet 1" data-tier="A">Outlet 1 (Stasiun) - Tier A</option>
+            <option value="Outlet 2" data-tier="A">Outlet 2 (Kampus) - Tier A</option>
+            <option value="Outlet 3" data-tier="B">Outlet 3 (Pasar) - Tier B</option>
+            <option value="Outlet 4" data-tier="B">Outlet 4 (Perumahan) - Tier B</option>
+            <option value="Outlet 7" data-tier="C">Outlet 7 (Jl. Baru) - Tier C</option>
+            <option value="Outlet 10" data-tier="C">Outlet 10 (Margonda) - Tier C</option>
+        </select>
+        <div id="outletBadge"></div>
+    </div>
 
-        <!-- Info Batas Minimum -->
-        <div class="info-box" id="infoBox" style="display: none;">
-            Pola target outlet Anda berada di <strong>Tier <span id="textTier">-</span></strong>.<br>
-            Batas Minimum Order (BMO) wajib hari ini: <strong><span id="textBmo">0</span> Paket</strong>.
-        </div>
+    <!-- Info BMO -->
+    <div class="info-box" id="infoBox" style="display:none; background:#fef3c7; padding:12px; border-radius:8px; margin-bottom:15px;">
+        Tier: <strong id="textTier"></strong> | BMO berlaku per jenis paket
+    </div>
 
-        <!-- Input Jumlah Paket -->
-        <div class="form-group">
-            <label for="jumlahPaket">Jumlah Paket Bahan Baku yang Diorder:</label>
-            <input type="number" id="jumlahPaket" min="1" placeholder="Masukkan jumlah paket" required oninput="hitungKalkulasi()">
-            <span style="font-size: 11px; color: #6b7280;">*1 Paket menghasilkan 100 biji gorengan siap jual.</span>
-        </div>
+    <!-- Daftar Paket -->
+    <div class="form-group">
+        <label>Daftar Paket yang Dipesan</label>
+        <div id="paketList"></div>
+        <button type="button" onclick="tambahPaket()" class="btn btn-primary" style="margin-top:8px;">+ Tambah Jenis Paket</button>
+    </div>
 
-        <!-- Box Peringatan BMO -->
-        <div class="alert-bmo" id="alertBmo">
-            ⚠️ Jumlah order kurang dari Batas Minimum Order (BMO) outlet Anda! Silakan naikkan jumlah paket order.
-        </div>
+    <!-- Alert BMO -->
+    <div class="alert-bmo" id="alertBmo"></div>
 
-        <!-- Rincian Otomatis -->
-        <div class="summary-box">
-            <label style="border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; margin-bottom: 10px;">Estimasi Output &amp; Modal</label>
-            
-            <div class="summary-row">
-                <span>Total Estimasi Gorengan:</span>
-                <span id="estGorengan" style="font-weight: bold;">0 Biji</span>
-            </div>
-            <div class="summary-row">
-                <span>Biaya Paket Bahan Baku:</span>
-                <span id="estBiaya">Rp 0</span>
-            </div>
-            <div class="summary-row">
-                <span>Potensi Omset Penjualan:</span>
-                <span id="estOmset">Rp 0</span>
-            </div>
-            <div class="summary-row total">
-                <span>Potensi Komisi Penjual (Anda):</span>
-                <span id="estKomisi">Rp 0</span>
-            </div>
-        </div>
+    <!-- Ringkasan -->
+    <div class="summary-box">
+        <div class="summary-row"><span>Total Paket:</span> <span id="totalPaket">0</span></div>
+        <div class="summary-row"><span>Total Biji:</span> <span id="totalBiji">0</span></div>
+        <div class="summary-row"><span>Total Biaya:</span> <span id="totalBiaya">Rp 0</span></div>
+        <div class="summary-row total"><span>Potensi Komisi:</span> <span id="totalKomisi">Rp 0</span></div>
+    </div>
 
-        <button type="submit" class="btn-submit" id="btnSubmit" disabled>
-            Kirim Pesanan ke Dapur Pusat
-        </button>
-    </form>
+    <button type="button" onclick="kirimOrder()" class="btn-submit" id="btnSubmit" disabled>
+        Kirim Pesanan ke Dapur Pusat
+    </button>
 </div>
 
 <script>
-    // Konfigurasi Harga
-    const HARGA_PAKET = 80000;
-    const HARGA_JUAL = 2500;
-    const KOMISI_PER_BIJI = 200;
+// ==================== DATA PAKET + BMO PER TIER ====================
+const PAKET_OPTIONS = [
+    { id: "p1", nama: "Paket Ayam Original", harga: 85000, bmo: {A:6, B:4, C:2} },
+    { id: "p2", nama: "Paket Ayam Pedas",    harga: 90000, bmo: {A:6, B:4, C:2} },
+    { id: "p3", nama: "Paket Udang",         harga: 95000, bmo: {A:5, B:3, C:2} },
+    { id: "p4", nama: "Paket Cumi",          harga:110000, bmo: {A:4, B:3, C:2} },
+    { id: "p5", nama: "Paket Campur Premium",harga:125000, bmo: {A:5, B:4, C:3} },
+    { id: "p6", nama: "Paket Ikan",          harga: 88000, bmo: {A:6, B:4, C:2} },
+    { id: "p7", nama: "Paket Tahu & Tempe",  harga: 65000, bmo: {A:8, B:6, C:4} },
+    { id: "p8", nama: "Paket Bakso",         harga: 92000, bmo: {A:5, B:3, C:2} },
+    { id: "p9", nama: "Paket Sosis",         harga: 87000, bmo: {A:6, B:4, C:2} },
+    { id:"p10", nama: "Paket Super Mix",     harga:135000, bmo: {A:4, B:3, C:2} }
+];
 
-    let currentBmo = 0;
+const HARGA_JUAL = 2500;
+const KOMISI_PER_BIJI = 200;
 
-    function updateOutletInfo() {
-        const select = document.getElementById('outlet');
-        const selectedOption = select.options[select.selectedIndex];
-        const infoBox = document.getElementById('infoBox');
-        const badgeContainer = document.getElementById('outletBadge');
+let currentTier = '';
+let paketItems = []; // Menyimpan data order
 
-        if (!selectedOption.value) {
-            infoBox.style.display = 'none';
-            badgeContainer.innerHTML = '';
-            currentBmo = 0;
-            resetKalkulasi();
-            return;
-        }
+// ==================== UPDATE OUTLET ====================
+function updateOutletInfo() {
+    const select = document.getElementById('outlet');
+    const option = select.options[select.selectedIndex];
+    
+    if (!option.value) {
+        currentTier = '';
+        document.getElementById('infoBox').style.display = 'none';
+        return;
+    }
+    
+    currentTier = option.getAttribute('data-tier');
+    document.getElementById('textTier').innerText = currentTier;
+    document.getElementById('infoBox').style.display = 'block';
+    
+    hitungSemua();
+}
 
-        const tier = selectedOption.getAttribute('data-tier');
-        currentBmo = parseInt(selectedOption.getAttribute('data-bmo'));
+// ==================== TAMBAH PAKET ====================
+function tambahPaket() {
+    if (!currentTier) {
+        alert("Silakan pilih outlet terlebih dahulu!");
+        return;
+    }
+    
+    const container = document.getElementById('paketList');
+    
+    const row = document.createElement('div');
+    row.className = 'item-row';
+    row.innerHTML = `
+        <select class="paket-select" onchange="hitungSemua()">
+            <option value="">-- Pilih Paket --</option>
+        </select>
+        <input type="number" class="qty-input" min="1" value="1" onchange="hitungSemua()">
+        <span class="harga-display">Rp 0</span>
+        <span class="subtotal-display">Rp 0</span>
+        <button type="button" onclick="hapusPaket(this)" class="btn btn-danger">×</button>
+    `;
+    
+    container.appendChild(row);
+    
+    // Isi dropdown
+    const select = row.querySelector('.paket-select');
+    PAKET_OPTIONS.forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p.id;
+        opt.textContent = p.nama;
+        opt.dataset.harga = p.harga;
+        select.appendChild(opt);
+    });
+    
+    hitungSemua();
+}
 
-        document.getElementById('textTier').innerText = tier;
-        document.getElementById('textBmo').innerText = currentBmo;
-        infoBox.style.display = 'block';
+function hapusPaket(btn) {
+    btn.closest('.item-row').remove();
+    hitungSemua();
+}
 
-        badgeContainer.innerHTML = `<span class="badge badge-${tier.toLowerCase()}">Tier ${tier} Outlet</span>`;
+// ==================== PERHITUNGAN AKUMULASI ====================
+function hitungSemua() {
+    const rows = document.querySelectorAll('#paketList .item-row');
+    let totalPaket = 0;
+    let totalBiji = 0;
+    let totalBiaya = 0;
+    let totalKomisi = 0;
+    let bmoViolations = [];
+
+    paketItems = []; // reset
+
+    rows.forEach(row => {
+        const select = row.querySelector('.paket-select');
+        const qtyInput = row.querySelector('.qty-input');
         
-        hitungKalkulasi();
-    }
+        if (!select.value) return;
 
-    function hitungKalkulasi() {
-        const jumlahPaketInput = document.getElementById('jumlahPaket');
-        const jumlahPaket = parseInt(jumlahPaketInput.value) || 0;
-        const alertBmo = document.getElementById('alertBmo');
-        const btnSubmit = document.getElementById('btnSubmit');
+        const paketData = PAKET_OPTIONS.find(p => p.id === select.value);
+        if (!paketData) return;
 
-        if (jumlahPaket === 0) {
-            resetKalkulasi();
-            return;
+        const qty = parseInt(qtyInput.value) || 0;
+        const harga = paketData.harga;
+        const subtotal = qty * harga;
+        const biji = qty * 100;
+        const komisi = biji * KOMISI_PER_BIJI;
+
+        // Update tampilan baris
+        row.querySelector('.harga-display').innerText = `Rp ${harga.toLocaleString('id-ID')}`;
+        row.querySelector('.subtotal-display').innerText = `Rp ${subtotal.toLocaleString('id-ID')}`;
+
+        // Simpan data
+        paketItems.push({
+            nama: paketData.nama,
+            qty: qty,
+            harga: harga,
+            subtotal: subtotal,
+            biji: biji
+        });
+
+        totalPaket += qty;
+        totalBiji += biji;
+        totalBiaya += subtotal;
+        totalKomisi += komisi;
+
+        // Validasi BMO per paket
+        const bmo = paketData.bmo[currentTier] || 0;
+        if (qty < bmo && currentTier) {
+            bmoViolations.push(`${paketData.nama} (min ${bmo})`);
         }
+    });
 
-        // Validasi BMO
-        if (jumlahPaket < currentBmo && currentBmo > 0) {
-            alertBmo.style.display = 'block';
-            btnSubmit.disabled = true;
-        } else if (currentBmo > 0) {
-            alertBmo.style.display = 'none';
-            btnSubmit.disabled = false;
-        } else {
-            btnSubmit.disabled = true;
-        }
+    // Update ringkasan
+    document.getElementById('totalPaket').innerText = totalPaket;
+    document.getElementById('totalBiji').innerText = totalBiji.toLocaleString('id-ID');
+    document.getElementById('totalBiaya').innerText = `Rp ${totalBiaya.toLocaleString('id-ID')}`;
+    document.getElementById('totalKomisi').innerText = `Rp ${totalKomisi.toLocaleString('id-ID')}`;
 
-        // Kalkulasi
-        const totalBiji = jumlahPaket * 100;
-        const totalBiaya = jumlahPaket * HARGA_PAKET;
-        const totalOmset = totalBiji * HARGA_JUAL;
-        const totalKomisi = totalBiji * KOMISI_PER_BIJI;
+    // Validasi BMO
+    const alertBox = document.getElementById('alertBmo');
+    const btnSubmit = document.getElementById('btnSubmit');
 
-        document.getElementById('estGorengan').innerText = totalBiji.toLocaleString('id-ID') + " Biji";
-        document.getElementById('estBiaya').innerText = "Rp " + totalBiaya.toLocaleString('id-ID');
-        document.getElementById('estOmset').innerText = "Rp " + totalOmset.toLocaleString('id-ID');
-        document.getElementById('estKomisi').innerText = "Rp " + totalKomisi.toLocaleString('id-ID');
+    if (bmoViolations.length > 0) {
+        alertBox.style.display = 'block';
+        alertBox.innerHTML = `⚠️ Paket berikut belum memenuhi BMO: <strong>${bmoViolations.join(', ')}</strong>`;
+        btnSubmit.disabled = true;
+    } else {
+        alertBox.style.display = 'none';
+        btnSubmit.disabled = rows.length === 0;
     }
+}
 
-    function resetKalkulasi() {
-        document.getElementById('estGorengan').innerText = "0 Biji";
-        document.getElementById('estBiaya').innerText = "Rp 0";
-        document.getElementById('estOmset').innerText = "Rp 0";
-        document.getElementById('estKomisi').innerText = "Rp 0";
-        document.getElementById('alertBmo').style.display = 'none';
-        document.getElementById('btnSubmit').disabled = true;
-    }
+// ==================== KIRIM PESAN WA ====================
+function kirimOrder() {
+    if (paketItems.length === 0) return;
 
-    function kirimOrder(event) {
-        event.preventDefault();
+    const outlet = document.getElementById('outlet').value;
+    let teks = `*[PESANAN MULTI PAKET - OTOMATIS]*\n`;
+    teks += `----------------------------------------\n`;
+    teks += `*Outlet:* ${outlet} (Tier ${currentTier})\n\n`;
 
-        const outlet = document.getElementById('outlet').value;
-        const paket = parseInt(document.getElementById('jumlahPaket').value);
+    let grandTotal = 0;
+    let grandBiji = 0;
+
+    paketItems.forEach((item, index) => {
+        teks += `${index + 1}. ${item.nama}\n`;
+        teks += `   Jumlah: ${item.qty} Paket\n`;
+        teks += `   Harga: Rp ${item.harga.toLocaleString('id-ID')}\n`;
+        teks += `   Subtotal: Rp ${item.subtotal.toLocaleString('id-ID')}\n\n`;
         
-        const totalBiji = paket * 100;
-        const totalBiaya = paket * HARGA_PAKET;
+        grandTotal += item.subtotal;
+        grandBiji += item.biji;
+    });
 
-        const nomorDapurPusat = "62881024727473"; // Format internasional
+    teks += `----------------------------------------\n`;
+    teks += `*TOTAL PAKET:* ${paketItems.length} jenis\n`;
+    teks += `*TOTAL BIJI:* ${grandBiji.toLocaleString('id-ID')} biji\n`;
+    teks += `*TOTAL TAGIHAN:* Rp ${grandTotal.toLocaleString('id-ID')}\n`;
+    teks += `----------------------------------------\n`;
+    teks += `Mohon segera disiapkan.`;
 
-        const teksPesan = 
-`*PESANAN HARIAN GORENGAN*
-----------------------------------------
-*Outlet___________:* ${outlet}
-*Jumlah Order_____:* ${paket} Paket
-*Target Produksi__:* ${totalBiji.toLocaleString('id-ID')} Biji
-*Tagihan Internal_:* Rp ${totalBiaya.toLocaleString('id-ID')}
-----------------------------------------
-Mohon segera disiapkan di Dapur Pusat untuk pengiriman esok pagi.`;
+    const nomor = "62880024727473";
+    const url = `https://wa.me/${nomor}?text=${encodeURIComponent(teks)}`;
+    window.location.href = url;
+}
 
-        const urlWhatsApp = `https://wa.me/${nomorDapurPusat}?text=${encodeURIComponent(teksPesan)}`;
-        //window.open(urlWhatsApp, '_blank');
-        window.location.href = urlWhatsApp;
-    }
+// Inisialisasi
+window.onload = function() {
+    // Bisa otomatis tambah 1 baris
+    // tambahPaket();
+};
 </script>
 </body>
 </html>
