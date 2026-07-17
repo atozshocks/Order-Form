@@ -331,7 +331,8 @@
 Mohon segera disiapkan di Dapur Pusat untuk pengiriman esok pagi.`;
 
         const urlWhatsApp = `https://wa.me/${nomorDapurPusat}?text=${encodeURIComponent(teksPesan)}`;
-        window.open(urlWhatsApp, '_blank');
+        //window.open(urlWhatsApp, '_blank');
+        window.location.href = urlWhatsApp;
     }
 </script>
 </body>
