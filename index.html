@@ -230,25 +230,25 @@ function kirimOrder() {
     const outlet = document.getElementById('outlet').value;
     let teks = `*[PESANAN MULTI PAKET - OTOMATIS]*\n`;
     teks += `----------------------------------------\n`;
-    teks += `*Outlet:* ${outlet} (Tier ${currentTier})\n\n`;
+    teks += `*Outlet :* ${outlet} (Tier ${currentTier})\n\n`;
 
     let grandTotal = 0;
     let grandBiji = 0;
 
     paketItems.forEach((item, index) => {
         teks += `${index + 1}. ${item.nama}\n`;
-        teks += `   Jumlah: ${item.qty} Paket\n`;
-        teks += `   Harga: Rp ${item.harga.toLocaleString('id-ID')}\n`;
-        teks += `   Subtotal: Rp ${item.subtotal.toLocaleString('id-ID')}\n\n`;
+        teks += `   Jumlah : ${item.qty} Paket\n`;
+        teks += `   Harga : Rp ${item.harga.toLocaleString('id-ID')}\n`;
+        teks += `   Subtotal : Rp ${item.subtotal.toLocaleString('id-ID')}\n\n`;
         
         grandTotal += item.subtotal;
         grandBiji += item.biji;
     });
 
     teks += `----------------------------------------\n`;
-    teks += `*TOTAL PAKET:* ${paketItems.length} jenis\n`;
-    teks += `*TOTAL BIJI:* ${grandBiji.toLocaleString('id-ID')} biji\n`;
-    teks += `*TOTAL TAGIHAN:* Rp ${grandTotal.toLocaleString('id-ID')}\n`;
+    teks += `*TOTAL PAKET :* ${paketItems.length} jenis\n`;
+    teks += `*TOTAL BIJI :* ${grandBiji.toLocaleString('id-ID')} biji\n`;
+    teks += `*TOTAL TAGIHAN :* Rp ${grandTotal.toLocaleString('id-ID')}\n`;
     teks += `----------------------------------------\n`;
     teks += `Mohon segera disiapkan.`;
 
