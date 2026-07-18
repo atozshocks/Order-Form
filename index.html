@@ -48,7 +48,7 @@
         }
         .item-row { 
             display: grid; 
-            grid-template-columns: 2.2fr 2fr 1.2fr 2fr 0.6fr; 
+            grid-template-rows: 1fr 1fr 1fr 1fr 0.5fr; 
             gap: 8px; align-items: center; 
             margin-bottom: 10px; 
             background: #f8fafc; 
@@ -91,8 +91,11 @@
             color: white; 
         }
         .btn-danger { 
+            display: flex;
             background: #dc2626; 
-            color: white; 
+            color: white;
+            width: 10%;
+            margin-left: 90%;
         }
         .btn-submit { 
             width: 100%; 
@@ -212,9 +215,11 @@ function tambahPaket() {
             <option value="">-- Pilih Paket --</option>
         </select>
         <input type="number" class="qty-input" min="1" value="1" onchange="hitungSemua()">
+        <label>Harga Paket</label>
         <span class="harga-display">Rp 0</span>
+        <label>SubTotal</label>
         <span class="subtotal-display">Rp 0</span>
-        <button type="button" onclick="hapusPaket(this)" class="btn btn-danger">×</button>
+        <button type="button" onclick="hapusPaket(this)" class="btn btn-danger">×</button>        
     `;
     
     container.appendChild(row);
