@@ -48,7 +48,7 @@
         }
         .item-row { 
             display: grid; 
-            grid-template-rows: 1fr 1fr 1fr 1fr 0.5fr; 
+            grid-template-rows: 1fr 1fr 0.5fr 0.5fr 0.5fr; 
             gap: 8px; align-items: center; 
             margin-bottom: 10px; 
             background: #f8fafc; 
@@ -215,10 +215,8 @@ function tambahPaket() {
             <option value="">-- Pilih Paket --</option>
         </select>
         <input type="number" class="qty-input" min="1" value="1" onchange="hitungSemua()">
-        <label>Harga Paket</label>
-        <span class="harga-display">Rp 0</span>
-        <label>SubTotal</label>
-        <span class="subtotal-display">Rp 0</span>
+        <span class="harga-display">Harga Rp 0</span>
+        <span class="subtotal-display">SubTotal Rp 0</span>
         <button type="button" onclick="hapusPaket(this)" class="btn btn-danger">×</button>        
     `;
     
@@ -269,8 +267,8 @@ function hitungSemua() {
         const komisi = biji * KOMISI_PER_BIJI;
 
         // Update tampilan baris
-        row.querySelector('.harga-display').innerText = `Rp ${harga.toLocaleString('id-ID')}`;
-        row.querySelector('.subtotal-display').innerText = `Rp ${subtotal.toLocaleString('id-ID')}`;
+        row.querySelector('.harga-display').innerText = `Harga Rp ${harga.toLocaleString('id-ID')}`;
+        row.querySelector('.subtotal-display').innerText = `SubTotal Rp ${subtotal.toLocaleString('id-ID')}`;
 
         // Simpan data
         paketItems.push({
