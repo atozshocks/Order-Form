@@ -5,23 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Order Internal - Multi Paket</title>
     <style>
-        :root { --primary: #d97706; --primary-hover: #b45309; --danger: #dc2626; }
-        body { font-family: 'Segoe UI', sans-serif; background: #f3f4f6; padding: 20px; }
-        .container { max-width: 620px; margin: 0 auto; background: white; padding: 25px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        h2 { text-align: center; color: #d97706; }
-        .form-group { margin-bottom: 18px; }
-        label { font-weight: 600; display: block; margin-bottom: 6px; }
-        select, input { width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 8px; }
-        .item-row { display: grid; grid-template-columns: 2.2fr 1fr 1.2fr 1fr 0.6fr; gap: 8px; align-items: center; margin-bottom: 10px; background: #f8fafc; padding: 10px; border-radius: 8px; }
-        .summary-box { background: #f8fafc; padding: 15px; border-radius: 8px; margin-top: 20px; }
-        .summary-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
-        .summary-row.total { font-weight: bold; border-top: 1px dashed #cbd5e1; padding-top: 8px; color: #d97706; }
-        .alert-bmo { background: #fee2e2; color: #dc2626; padding: 10px; border-radius: 8px; margin-top: 10px; display: none; }
-        .btn { padding: 10px 16px; border: none; border-radius: 8px; cursor: pointer; }
-        .btn-primary { background: #d97706; color: white; }
-        .btn-danger { background: #dc2626; color: white; }
-        .btn-submit { width: 100%; padding: 14px; background: #d97706; color: white; border: none; border-radius: 8px; font-size: 16px; margin-top: 20px; }
-        .btn-submit:disabled { background: #cbd5e1; cursor: not-allowed; }
+        :root { 
+            --primary: #d97706; 
+            --primary-hover: #b45309; 
+            --danger: #dc2626; 
+        }
+        body { 
+            font-family: 'Segoe UI', sans-serif; background: #f3f4f6; 
+            padding: 20px; 
+        }
+        .container { 
+            max-width: 720px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 25px; 
+            border-radius: 16px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+        }
+        h2 { 
+            text-align: center; 
+            color: #d97706; 
+        }
+        .form-group { 
+            margin-bottom: 18px; 
+        }
+        label { 
+            font-weight: 600; 
+            display: block; 
+            margin-bottom: 6px; 
+        }
+        select, input { 
+            width: 100%; 
+            padding: 10px; 
+            border: 1px solid #d1d5db; 
+            border-radius: 8px; 
+        }
+        .item-row { 
+            display: grid; 
+            grid-template-columns: 2.2fr 1fr 1.2fr 1fr 0.6fr; 
+            gap: 8px; align-items: center; 
+            margin-bottom: 10px; 
+            background: #f8fafc; 
+            padding: 10px; 
+            border-radius: 8px; 
+        }
+        .summary-box { 
+            background: #f8fafc; 
+            padding: 15px; 
+            border-radius: 8px; 
+            margin-top: 20px; 
+        }
+        .summary-row { 
+            display: flex; 
+            justify-content: space-between; 
+            margin-bottom: 6px; 
+        }
+        .summary-row.total { 
+            font-weight: bold; 
+            border-top: 1px dashed #cbd5e1; 
+            padding-top: 8px; 
+            color: #d97706; 
+        }
+        .alert-bmo { 
+            background: #fee2e2; 
+            color: #dc2626; 
+            padding: 10px; 
+            border-radius: 8px; 
+            margin-top: 10px; 
+            display: none; 
+        }
+        .btn { 
+            padding: 10px 16px;
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+        }
+        .btn-primary { 
+            background: #d97706; 
+            color: white; 
+        }
+        .btn-danger { 
+            background: #dc2626; 
+            color: white; 
+        }
+        .btn-submit { 
+            width: 100%; 
+            padding: 14px; 
+            background: #d97706; 
+            color: white; border: none; 
+            border-radius: 8px; 
+            font-size: 16px; 
+            margin-top: 20px; 
+        }
+        .btn-submit:disabled { 
+            background: #cbd5e1; 
+            cursor: not-allowed; 
+        }
     </style>
 </head>
 <body>
@@ -75,19 +154,19 @@
 <script>
 // ==================== DATA PAKET + BMO PER TIER ====================
 const PAKET_OPTIONS = [
-    { id: "p1", nama: "Paket Ayam Original", harga: 85000, bmo: {A:6, B:4, C:2} },
-    { id: "p2", nama: "Paket Ayam Pedas",    harga: 90000, bmo: {A:6, B:4, C:2} },
-    { id: "p3", nama: "Paket Udang",         harga: 95000, bmo: {A:5, B:3, C:2} },
-    { id: "p4", nama: "Paket Cumi",          harga:110000, bmo: {A:4, B:3, C:2} },
-    { id: "p5", nama: "Paket Campur Premium",harga:125000, bmo: {A:5, B:4, C:3} },
-    { id: "p6", nama: "Paket Ikan",          harga: 88000, bmo: {A:6, B:4, C:2} },
-    { id: "p7", nama: "Paket Tahu & Tempe",  harga: 65000, bmo: {A:8, B:6, C:4} },
-    { id: "p8", nama: "Paket Bakso",         harga: 92000, bmo: {A:5, B:3, C:2} },
-    { id: "p9", nama: "Paket Sosis",         harga: 87000, bmo: {A:6, B:4, C:2} },
-    { id:"p10", nama: "Paket Super Mix",     harga:135000, bmo: {A:4, B:3, C:2} }
+    { id: "p1", nama: "Paket Bakwan",   harga: 85000, bmo: {A:6, B:4, C:2} },
+    { id: "p2", nama: "Paket Tahu",     harga: 90000, bmo: {A:6, B:4, C:2} },
+    { id: "p3", nama: "Paket Oncom",    harga: 95000, bmo: {A:5, B:3, C:2} },
+    { id: "p4", nama: "Paket Tempe",    harga:110000, bmo: {A:4, B:3, C:2} },
+    { id: "p5", nama: "Paket Pisang",   harga:125000, bmo: {A:5, B:4, C:3} },
+    { id: "p6", nama: "Paket Bola Ubi", harga: 88000, bmo: {A:6, B:4, C:2} },
+    { id: "p7", nama: "Paket Risol",    harga: 65000, bmo: {A:8, B:6, C:4} },
+    { id: "p8", nama: "Paket Cireng",   harga: 92000, bmo: {A:5, B:3, C:2} },
+    { id: "p9", nama: "Paket Singkong", harga: 87000, bmo: {A:6, B:4, C:2} },
+    { id:"p10", nama: "Paket Super Mix",harga:135000, bmo: {A:4, B:3, C:2} }
 ];
 
-const HARGA_JUAL = 2500;
+const HARGA_JUAL = 1600;
 const KOMISI_PER_BIJI = 200;
 
 let currentTier = '';
@@ -128,8 +207,10 @@ function tambahPaket() {
         </select>
         <input type="number" class="qty-input" min="1" value="1" onchange="hitungSemua()">
         <span class="harga-display">Rp 0</span>
+        <p>
         <span class="subtotal-display">Rp 0</span>
         <button type="button" onclick="hapusPaket(this)" class="btn btn-danger">×</button>
+        </p>
     `;
     
     container.appendChild(row);
